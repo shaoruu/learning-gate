@@ -1,0 +1,1 @@
+const CANVAS_DIMENSION = 500
