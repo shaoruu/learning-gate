@@ -8,7 +8,7 @@ class Perceptron {
 
     this.samples = samples
     this.target = target
-    ;(this.learningRate = learningRate), random(-2.5, 2.5)
+    this.learningRate = learningRate
     this.maxError = maxError
     this.epochs = epochs
 
@@ -25,7 +25,7 @@ class Perceptron {
   }
 
   step = () => {
-    this.epochCount++
+    if (this.finished) return
 
     if (this.epochCount === this.epochs) {
       this.finished = true
@@ -39,10 +39,12 @@ class Perceptron {
       const sample = this.samples[j]
       const target = this.target[j]
 
-      const output = this.weights.map((w, ii) => w * sample[ii])
+      const output =
+        this.weights.map((w, ii) => w * sample[ii]).reduce((a, b) => a + b, 0) - this.threshold
+      const error = target - output
+
       for (let k = 0; k < this.weights.length; k++) {
         const input = sample[k]
-        const error = target - output[k]
 
         // deltaW = lr * error * input
         const deltaW = this.learningRate * error * input
@@ -50,13 +52,19 @@ class Perceptron {
 
         totalError += error
       }
+
+      const deltaThreshold = this.learningRate * error * -1
+      this.threshold += deltaThreshold
     }
 
     // DRAW
     if (totalError < this.maxError) {
       console.log(`Finished learning after ${this.epochCount} epochs.`)
+      this.finished = true
       return
     }
+
+    this.epochCount++
     console.log(`Epoch ${this.epochCount}: ${totalError}`)
   }
 }
