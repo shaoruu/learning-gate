@@ -5,4 +5,4 @@ const samples = [
   [1, 1]
 ]
 
-const target = [0, 0, 0, 1]
+const targets = [0, 0, 0, 1]
