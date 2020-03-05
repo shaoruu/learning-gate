@@ -1,16 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
-#my-cvs {
+#wrapper {
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+#weights {
+  position: absolute;
+  left: 0;
+}
+
+/* #my-cvs {
+  width: 50vh;
+  height: 50vh;
+} */
+
+#controls {
+  position: absolute;
+  right: 0;
+}
+
+#controls button {
+  margin: 1.2em;
+  background: transparent;
+  border: 2px solid #17bebb;
+  color: #17bebb;
+  padding: 1em;
+  transition: 0.2s all;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#controls button:active {
+  padding-top: 10px;
+  background: #d7fbf6;
+}
+
+#controls button:focus {
+  outline: none;
+}
+
+#weights div {
+  color: #eeeeee;
+  font-size: 1.2em;
+  margin: 1em;
+}
+
+#display {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  flex: 1;
+  margin: auto;
+}
+
+#title {
+  padding: 0.4em;
+  color: #eeeeee;
+  font-size: 3em;
+}
+
+#error,
+#epoch {
+  color: #eeeeee;
+  font-size: 1.2em;
+  margin: 0.8em;
 }
 
 body {

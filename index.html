@@ -6,15 +6,38 @@
     <title>Learning Gates</title>
 
     <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="icon"
+      href="https://i.pinimg.com/originals/16/de/5f/16de5f8dd1ffe99f9e169a0605a960b3.png"
+    />
 
     <script src="libs/p5.js"></script>
     <script src="libs/p5.sound.js"></script>
     <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
   </head>
   <body>
-    <div id="my-cvs"></div>
+    <div id="wrapper">
+      <div id="weights">
+        <div id="w0">w0: 0</div>
+        <div id="w1">w1: 0</div>
+        <div id="w2">w2: 0</div>
+      </div>
+
+      <div id="display">
+        <div id="title">Learning Gates</div>
+        <div id="my-cvs"></div>
+        <div>
+          <span id="epoch">Epoch: 1</span> <span id="error">Error: 0</span>
+        </div>
+      </div>
+
+      <div id="controls">
+        <button id="randomize">Randomize</button>
+      </div>
+    </div>
 
     <script src="js/config.js"></script>
+    <script src="js/domElements.js"></script>
     <script src="js/data.js"></script>
     <script src="js/visualizer.js"></script>
     <script src="js/perceptron.js"></script>

@@ -14,7 +14,7 @@ class Perceptron {
 
     this.epochCount = 0
 
-    this.initializeWeights()
+    this.randomizeWeights()
   }
 
   crossEntropy = (yHat, y) => {
@@ -31,7 +31,7 @@ class Perceptron {
 
   derivativeSigmoid = x => x * (1 - x)
 
-  initializeWeights = () => {
+  randomizeWeights = () => {
     this.w0 = random(0.02)
     this.w1 = random(0.02)
     this.w2 = random(0.02)
@@ -85,6 +85,13 @@ class Perceptron {
     } else {
       console.log(`Epoch #${this.epochCount}: ${avgError}`)
     }
+
+    errorDOM.innerHTML = 'Error: ' + Math.round(avgError * 100) / 100
+    epochDOM.innerHTML = 'Epoch: ' + this.epochCount
+
+    w0DOM.innerHTML = 'w0: ' + Math.round(this.w0 * 1000) / 1000
+    w1DOM.innerHTML = 'w1: ' + Math.round(this.w1 * 1000) / 1000
+    w2DOM.innerHTML = 'w2: ' + Math.round(this.w2 * 1000) / 1000
 
     // const dummyCheck = this.samples.filter((sample, i) => {
     //   return this.test(sample) !== this.targets[i]
